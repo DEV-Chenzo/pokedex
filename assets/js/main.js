@@ -1,30 +1,21 @@
-function covertPokemonTypesToLi(pokemonTypes) {
-  return pokemonTypes
-    .map(
-      (typeSlot) =>
-        `<li class="type ${typeSlot.type.name}">${typeSlot.type.name}</li>`
-    )
-    .join(" ");
-}
+
 
 function pokemonToHtml(pokemon) {
-  return `
-    <li class="pokemon">
-          <p class="name">${pokemon.name}</p>
-          <p class="number">#${pokemon.id}</p>
+  return`
+        <li class="pokemon ${pokemon.type}">
+            <span class="name">${pokemon.name}</span>
+            <span class="number">#${pokemon.numberId}</span>
 
-          <div class="detail">
-            <ol class="types">
-              ${covertPokemonTypesToLi(pokemon.types)}
-            </ol>
+            <div class="detail">
+                <ol class="types">
+                    ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
+                </ol>
 
-            <img
-              src="${pokemon.sprites.other.dream_world.front_default}"
-              alt="${pokemon.name}"
-            />
-          </div>
+                <img src="${pokemon.photo}"
+                     alt="${pokemon.name}">
+            </div>
         </li>
-  `;
+    `;
 }
 
 const listPokemons = document.getElementById("pokemonList");

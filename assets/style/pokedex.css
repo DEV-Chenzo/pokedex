@@ -10,6 +10,8 @@
 .pokemon {
   margin: 0.5rem;
   display: grid;
+  background-image: url('../components/img/poke-backgraound.png');
+  background-size: cover;
   background-color: #85eb56;
   grid-template-columns: 1fr 1fr;
   border-radius: 20px;
